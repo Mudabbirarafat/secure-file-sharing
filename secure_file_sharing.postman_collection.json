@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "e063781a-85f3-40da-80a6-0f6544b9f73c",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46365856",
+		"_collection_link": "https://mohdmudabbirarafat.postman.co/workspace/Mohd-Mudabbir-Arafat's-Workspac~d219b7dc-badc-4fee-8368-ad15bdb81d3f/collection/46365856-e063781a-85f3-40da-80a6-0f6544b9f73c?action=share&source=collection_link&creator=46365856"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/ops/upload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// No specific fields to save from 404 response"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/sample.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/ops/upload",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"ops",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
