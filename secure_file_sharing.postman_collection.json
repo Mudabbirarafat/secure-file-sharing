@@ -51,6 +51,177 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/client/download-file/sample.docx?email=client@example.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/download-file/sample.docx?email=client@example.com",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"download-file",
+						"sample.docx"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "client@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/client/files?email=client@example.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/files?email=client@example.com",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"files"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "client@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/ops/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ops@example.com\",\r\n  \"password\": \"ops123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/ops/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"ops",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/client/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"client@example.com\",\r\n  \"password\": \"test123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/client/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"verify",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/client/download/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/download/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"download",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
