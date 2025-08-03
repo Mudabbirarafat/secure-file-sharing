@@ -68,3 +68,6 @@ Select the JSON file
 All API routes will be pre-configured
 
 Test login, upload, signup, file listing, secure download
+
+#Author
+Mudabbir Arafat
