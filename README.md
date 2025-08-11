@@ -18,10 +18,6 @@ secure-file-sharing/
 ├── secure_file_sharing.postman_collection.json # ✅ Postman dump
 └── README.md
 
-yaml
-Copy
-Edit
-
 ---
 
 ## ⚙️ Tech Stack
@@ -53,6 +49,31 @@ POST	/client/login	Login as verified client
 GET	/client/files?email=<email>	List all uploaded files
 GET	/client/download-file/<filename>?email=<email>	Generate download link
 GET	/client/download/<token>	Secure file download
+
+---
+## ⚙️ Tech Stack
+- **Backend:** Flask (Blueprints)
+- **Database:** SQLite (extensible to any SQL DB)
+- **Authentication:** JWT
+- **Testing Tools:** Postman / Thunder Client
+- **Language:** Python
+
+---
+🔐 API Endpoints
+Ops APIs
+Method	Route	Description
+POST	/ops/login	Login as Ops user
+POST	/ops/upload	Upload valid file (.docx/.pptx/.xlsx)
+
+## 🚀 How to Run
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the server
+python app.py
+The server will start at http://localhost:5000.
+
 
 🧪 Postman Testing
 This project includes a full Postman collection to test APIs.
