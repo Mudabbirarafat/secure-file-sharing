@@ -1,0 +1,31 @@
+# Render blueprint for the Flask app.
+#
+# Why Render and not Vercel: this service writes uploads to uploaded_files/ and
+# keeps state in SQLite on disk. Vercel's serverless filesystem is read-only
+# apart from /tmp and is discarded between invocations, so uploads and the
+# database cannot survive there. Render runs it as an ordinary long-lived
+# process with a writable filesystem.
+#
+# Caveat on the free plan: the filesystem is still EPHEMERAL. The instance
+# sleeps after ~15 minutes idle and resets on every restart or deploy, so uploaded
+# files and data.db are lost then. Fine for a demo. To make it durable, attach
+# a Render disk (paid) mounted at /opt/render/project/src, or move storage to
+# S3/Supabase and the database to Postgres.
+
+services:
+  - type: web
+    name: secure-file-sharing
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    # init_db.py is idempotent (db.create_all), so running it on every boot
+    # recreates the schema after the free instance resets its disk.
+    startCommand: python init_db.py && gunicorn run:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      # JWTs are signed with this. The code falls back to the literal string
+      # 'secret' if it is unset, which must never happen in a deployment.
+      - key: SECRET_KEY
+        generateValue: true

@@ -7,6 +7,7 @@ import os
 
 ops_bp = Blueprint('ops_bp', __name__)
 UPLOAD_FOLDER = 'uploaded_files'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 ALLOWED_EXTENSIONS = {'docx', 'pptx', 'xlsx'}
 
 def allowed_file(filename):
