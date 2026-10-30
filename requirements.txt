@@ -1,0 +1,18 @@
+# Runtime dependencies for secure-file-sharing.
+# Derived from the actual imports in app/ and the root scripts:
+#   flask            -> Flask            (app/__init__.py, app/routes/*)
+#   flask_sqlalchemy -> Flask-SQLAlchemy (app/extensions/__init__.py)
+#   jwt              -> PyJWT            (app/routes/client.py, HS256 tokens)
+#   werkzeug         -> Werkzeug         (password hashing, secure_filename)
+#
+# The database is sqlite:///data.db, which uses the stdlib sqlite3 module,
+# so no database driver is needed here.
+#
+# Versions are left unpinned on purpose - I don't know which ones you built
+# against. Pin them from your own working environment with:
+#   pip freeze | grep -iE "^(flask|flask-sqlalchemy|pyjwt|werkzeug)=="
+
+Flask
+Flask-SQLAlchemy
+PyJWT
+Werkzeug
