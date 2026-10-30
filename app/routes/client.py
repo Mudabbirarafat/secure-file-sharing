@@ -8,6 +8,7 @@ import datetime
 
 client_bp = Blueprint('client_bp', __name__)
 UPLOAD_FOLDER = 'uploaded_files'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @client_bp.route('/signup', methods=['POST'])
 def signup():
