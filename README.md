@@ -1,5 +1,7 @@
 # 🔐 Secure File Sharing API (Flask + JWT)
 
+[![CI](https://github.com/Mudabbirarafat/secure-file-sharing/actions/workflows/ci.yml/badge.svg)](https://github.com/Mudabbirarafat/secure-file-sharing/actions/workflows/ci.yml)
+
 This is a secure file sharing system built with Flask where:
 - `Ops` users can upload `.docx`, `.pptx`, or `.xlsx` files.
 - `Client` users can sign up, verify their email, log in, view available files, and download via a secure link.
