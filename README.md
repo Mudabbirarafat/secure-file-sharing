@@ -40,8 +40,33 @@ python app.py
 🔐 API Endpoints
 ➤ Ops APIs
 Method	Route	Description
-POST	/ops/login	Login as Ops user
-POST	/ops/upload	Upload valid file (.docx/.pptx/.xlsx)
+POST	/ops/login	Login as Ops user, returns a bearer token
+POST	/ops/upload	Upload valid file (.docx/.pptx/.xlsx) - requires the token
+
+### Ops authentication
+
+`/ops/upload` requires a bearer token issued by `/ops/login`:
+
+Step 1 — exchange credentials for a token:
+
+```bash
+curl -s -X POST localhost:5000/ops/login -H 'Content-Type: application/json' -d '{"email":"ops@example.com","password":"your-password"}'
+```
+
+```json
+{ "message": "Ops login successful", "token": "eyJhbGciOiJIUzI1NiIs..." }
+```
+
+Step 2 — send the token with the upload:
+
+```bash
+curl -X POST localhost:5000/ops/upload -H "Authorization: Bearer <token>" -F file=@report.docx
+```
+
+Tokens last 60 minutes. The account's role is rechecked against the database on
+every request, so a token stops working as soon as the account is removed or
+is no longer an ops user.
+
 
 ➤ Client APIs
 Method	Route	Description
@@ -64,8 +89,8 @@ GET	/client/download/<token>	Secure file download
 🔐 API Endpoints
 Ops APIs
 Method	Route	Description
-POST	/ops/login	Login as Ops user
-POST	/ops/upload	Upload valid file (.docx/.pptx/.xlsx)
+POST	/ops/login	Login as Ops user, returns a bearer token
+POST	/ops/upload	Upload valid file (.docx/.pptx/.xlsx) - requires the token
 
 ## 🚀 How to Run
 ```bash
@@ -75,7 +100,6 @@ pip install -r requirements.txt
 # Run the server
 python app.py
 The server will start at http://localhost:5000.
-
 
 🧪 Postman Testing
 This project includes a full Postman collection to test APIs.
