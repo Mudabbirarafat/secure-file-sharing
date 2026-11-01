@@ -87,3 +87,16 @@ def token_for():
 def upload_dir(app):
     """Path of the upload folder for the current test."""
     return os.path.join(os.getcwd(), "uploaded_files")
+
+
+@pytest.fixture
+def ops_headers(app, make_user):
+    """Authorization header for a signed-in ops user.
+
+    /ops/upload requires one; without it the endpoint would accept a file from
+    any caller that could reach the URL.
+    """
+    from app.auth import issue_ops_token
+
+    user = make_user("uploader@example.com", role="ops")
+    return {"Authorization": f"Bearer {issue_ops_token(user)}"}

@@ -39,7 +39,7 @@ def test_upload_folder_honours_the_environment_override(app, tmp_path, monkeypat
     assert custom.is_dir()
 
 
-def test_uploaded_file_is_listed_and_downloadable(client, make_user):
+def test_uploaded_file_is_listed_and_downloadable(client, make_user, ops_headers):
     """The end-to-end invariant the bug broke: anything the listing shows must
     be fetchable through a signed link."""
     import io
@@ -48,6 +48,7 @@ def test_uploaded_file_is_listed_and_downloadable(client, make_user):
         "/ops/upload",
         data={"file": (io.BytesIO(b"payload"), "agreement.docx")},
         content_type="multipart/form-data",
+        headers=ops_headers,
     )
     assert upload.status_code == 201
 

@@ -4,6 +4,7 @@ from werkzeug.security import check_password_hash
 from app.models import User
 from app.extensions import db
 from app.storage import upload_folder
+from app.auth import issue_ops_token, ops_required
 import os
 
 ops_bp = Blueprint('ops_bp', __name__)
@@ -22,9 +23,13 @@ def ops_login():
     user = User.query.filter_by(email=email, role='ops').first()
     if not user or not check_password_hash(user.password, password):
         return jsonify({"error": "Invalid credentials"}), 401
-    return jsonify({"message": "Ops login successful"}), 200
+    return jsonify({
+        "message": "Ops login successful",
+        "token": issue_ops_token(user),
+    }), 200
 
 @ops_bp.route('/upload', methods=['POST'])
+@ops_required
 def upload_file():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
