@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 instance/data.db
 .env
+.venv/
+uploaded_files/
+.pytest_cache/
+*.db

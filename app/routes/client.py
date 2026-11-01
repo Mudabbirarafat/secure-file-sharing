@@ -2,13 +2,12 @@ from flask import Blueprint, request, jsonify, current_app, send_from_directory
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models import User
 from app.extensions import db
+from app.storage import upload_folder
 import jwt
 import os
 import datetime
 
 client_bp = Blueprint('client_bp', __name__)
-UPLOAD_FOLDER = 'uploaded_files'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @client_bp.route('/signup', methods=['POST'])
 def signup():
@@ -89,7 +88,7 @@ def list_files():
     if not user:
         return jsonify({"error": "Unauthorized"}), 403
 
-    files = os.listdir(UPLOAD_FOLDER)
+    files = os.listdir(upload_folder())
     return jsonify({"files": files}), 200
 
 
@@ -124,7 +123,7 @@ def secure_download(token):
         if not user:
             return jsonify({"error": "Unauthorized"}), 403
 
-        return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
+        return send_from_directory(upload_folder(), filename, as_attachment=True)
 
     except jwt.ExpiredSignatureError:
         return jsonify({"error": "Download link expired"}), 400
