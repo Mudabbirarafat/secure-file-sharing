@@ -3,11 +3,10 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash
 from app.models import User
 from app.extensions import db
+from app.storage import upload_folder
 import os
 
 ops_bp = Blueprint('ops_bp', __name__)
-UPLOAD_FOLDER = 'uploaded_files'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 ALLOWED_EXTENSIONS = {'docx', 'pptx', 'xlsx'}
 
 def allowed_file(filename):
@@ -34,6 +33,6 @@ def upload_file():
         return jsonify({"error": "No selected file"}), 400
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(UPLOAD_FOLDER, filename))
+        file.save(os.path.join(upload_folder(), filename))
         return jsonify({"message": "File uploaded successfully"}), 201
     return jsonify({"error": "Invalid file type"}), 400
