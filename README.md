@@ -17,7 +17,7 @@ secure-file-sharing/
 ├── models.py
 ├── uploaded_files/ # Stores uploaded files
 ├── requirements.txt
-├── secure_file_sharing.postman_collection.json # ✅ Postman dump
+├── secure_file_sharing.postman_collection.json # Postman collection, in run order
 └── README.md
 
 ---
@@ -108,13 +108,22 @@ This project includes a full Postman collection to test APIs.
 secure_file_sharing.postman_collection.json
 
 📥 How to use:
-Open Postman → Import
+Open Postman → Import → select the JSON file.
 
-Select the JSON file
+Set `baseUrl`, `opsEmail`, `opsPassword`, `clientEmail` and `clientPassword` in
+the collection's variables. The values shipped with it are placeholders, not
+credentials.
 
-All API routes will be pre-configured
+Then run the requests top to bottom. They are in that order for a reason:
 
-Test login, upload, signup, file listing, secure download
+- **Ops login** stores its token in `opsToken`, and **Ops upload** sends it as
+  `Authorization: Bearer {{opsToken}}`. Upload answers 401 without it. The
+  collection keeps a second, deliberately unauthenticated upload request so
+  that rule is visible rather than assumed.
+- **Client signup** lifts the token out of the `verify_link` it returns, so
+  **Client verify email** needs nothing pasted in by hand.
+- **Client request a download link** does the same with the signed URL, which
+  is what **Client download** then uses.
 
 #Author
 Mudabbir Arafat

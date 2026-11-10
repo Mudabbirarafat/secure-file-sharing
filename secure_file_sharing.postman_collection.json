@@ -1,227 +1,383 @@
 {
-	"info": {
-		"_postman_id": "e063781a-85f3-40da-80a6-0f6544b9f73c",
-		"name": "New Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "46365856",
-		"_collection_link": "https://mohdmudabbirarafat.postman.co/workspace/Mohd-Mudabbir-Arafat's-Workspac~d219b7dc-badc-4fee-8368-ad15bdb81d3f/collection/46365856-e063781a-85f3-40da-80a6-0f6544b9f73c?action=share&source=collection_link&creator=46365856"
-	},
-	"item": [
-		{
-			"name": "http://127.0.0.1:5000/ops/upload",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// No specific fields to save from 404 response"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": "/E:/sample.docx"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://127.0.0.1:5000/ops/upload",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"ops",
-						"upload"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/client/download-file/sample.docx?email=client@example.com",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/client/download-file/sample.docx?email=client@example.com",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"client",
-						"download-file",
-						"sample.docx"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "client@example.com"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/client/files?email=client@example.com",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/client/files?email=client@example.com",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"client",
-						"files"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "client@example.com"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/ops/login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"ops@example.com\",\r\n  \"password\": \"ops123\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:5000/ops/login",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"ops",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/client/signup",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"client@example.com\",\r\n  \"password\": \"test123\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:5000/client/signup",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"client",
-						"signup"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/client/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/client/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"client",
-						"verify",
-						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNsaWVudEBleGFtcGxlLmNvbSJ9.rYGJzl1fGWF-Wdp0zRoWHPNoBlEZJ6dPYG2UUVWCMHw"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://127.0.0.1:5000/client/download/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:5000/client/download/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "5000",
-					"path": [
-						"client",
-						"download",
-						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaWxlbmFtZSI6InNhbXBsZS5kb2N4IiwiZW1haWwiOiJjbGllbnRAZXhhbXBsZS5jb20ifQ.PNnlCfdvRxRr8F9eqKSSpEZCfUFD_LmZLYT6k5KqMo0"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "e063781a-85f3-40da-80a6-0f6544b9f73c",
+    "name": "secure-file-sharing",
+    "description": "Run the requests in order. Ops login stores its token in a collection variable, signup and the download-link request do the same with theirs, so nothing here has to be pasted in by hand.\n\nSet baseUrl, the two e-mail addresses and the two passwords before the first run. The defaults are placeholders and are not credentials.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ops",
+      "item": [
+        {
+          "name": "Ops login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{opsEmail}}\",\n  \"password\": \"{{opsPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Run this first. The token it returns is what /ops/upload requires."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.test('login returns a token', () => pm.expect(body.token).to.be.a('string'));",
+                  "pm.collectionVariables.set('opsToken', body.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ops upload",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{opsToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "upload"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "description": "Requires the bearer token from Ops login. Without it this answers 401, which is the point: the endpoint used to accept a file from any caller that could reach the URL."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('upload is not open to anyone', () => pm.expect(pm.response.code).to.not.eql(200));",
+                  "pm.test('accepted', () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ops upload without a token (should be 401)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "upload"
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "description": "The negative case, kept in the collection so the rule is visible rather than assumed."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('refused', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "client",
+      "item": [
+        {
+          "name": "Client signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/client/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "signup"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{clientEmail}}\",\n  \"password\": \"{{clientPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Returns the verification link. The token is lifted out of it below."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "if (body.verify_link) {",
+                  "  pm.collectionVariables.set('verifyToken', body.verify_link.split('/').pop());",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client verify email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/client/verify/{{verifyToken}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "verify",
+                "{{verifyToken}}"
+              ]
+            },
+            "description": "Uses the token captured by Client signup rather than one pasted in by hand."
+          },
+          "response": []
+        },
+        {
+          "name": "Client login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/client/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{clientEmail}}\",\n  \"password\": \"{{clientPassword}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Was missing from this collection entirely."
+          },
+          "response": []
+        },
+        {
+          "name": "Client list files",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/client/files?email={{clientEmail}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "files"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{clientEmail}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Client request a download link",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/client/download-file/{{filename}}?email={{clientEmail}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "download-file",
+                "{{filename}}"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{clientEmail}}"
+                }
+              ]
+            },
+            "description": "Returns a signed, expiring URL. The token is lifted out of it below."
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "if (body['download-link']) {",
+                  "  pm.collectionVariables.set('downloadToken', body['download-link'].split('/').pop());",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client download",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/client/download/{{downloadToken}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "client",
+                "download",
+                "{{downloadToken}}"
+              ]
+            },
+            "description": "Uses the token captured by the request above."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000",
+      "type": "string"
+    },
+    {
+      "key": "opsEmail",
+      "value": "ops@example.com",
+      "type": "string"
+    },
+    {
+      "key": "opsPassword",
+      "value": "set-me",
+      "type": "string"
+    },
+    {
+      "key": "clientEmail",
+      "value": "client@example.com",
+      "type": "string"
+    },
+    {
+      "key": "clientPassword",
+      "value": "set-me",
+      "type": "string"
+    },
+    {
+      "key": "filename",
+      "value": "sample.docx",
+      "type": "string"
+    },
+    {
+      "key": "opsToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "verifyToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "downloadToken",
+      "value": "",
+      "type": "string"
+    }
+  ]
 }
